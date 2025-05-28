@@ -382,3 +382,14 @@ body {
         box-shadow: none;
     }
 }
+
+.api-credit {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.api-credit a {
+    color: #444;
+    text-decoration: underline;
+}
