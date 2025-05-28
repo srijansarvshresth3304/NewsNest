@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Chronicle</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Playfair+Display:wght@700&family=IM+Fell+English&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="newspaper-container">
+        <!-- Breaking News Ticker -->
+        <div class="breaking-news">
+            <div class="ticker-wrap">
+                <div class="ticker">
+                    <span class="breaking-label">BREAKING:</span>
+                    <span id="breakingNewsText">Loading headlines...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newspaper Header -->
+        <header class="newspaper-header">
+            <div class="header-content">
+                <div class="weather-widget">
+                    <span class="weather-icon">☀️</span>
+                    <span id="weatherTemp">32°C</span>
+                    <span id="weatherCity">Patna</span>
+                </div>
+                <h1 class="newspaper-title">THE DAILY CHRONICLE</h1>
+                <div class="newspaper-info">
+                    <span class="edition">Evening Edition</span>
+                    <span class="price">Price: ₹5</span>
+                </div>
+                <div class="current-date" id="currentDate"></div>
+            </div>
+        </header>
+
+        <!-- Date Picker -->
+        <div class="date-selector">
+            <input type="date" id="datePicker">
+            <button id="printBtn" class="print-btn" title="Print Edition">🖨️</button>
+        </div>
+
+        <!-- Main News Card -->
+        <article class="news-card" id="newsCard">
+            <div class="news-content">
+                <h2 id="headline">Today's Headlines</h2>
+                <div id="description"></div>
+                <div class="article-footer">
+                    <span id="articleSource"></span>
+                    <span id="articleDate"></span>
+                </div>
+            </div>
+            <div class="fold-effect"></div>
+            <div class="ink-smudge"></div>
+        </article>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button id="prevBtn" class="nav-btn">◀ Previous</button>
+            <span id="articleCounter">1 of 10</span>
+            <button id="nextBtn" class="nav-btn">Next ▶</button>
+        </div>
+
+        <!-- Newspaper Footer -->
+        <footer class="newspaper-footer">
+            <p>© 2023 The Daily Chronicle. All rights reserved.</p>
+            <p>Printed at: <span id="printLocation">New Delhi</span></p>
+        </footer>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/darkmode.js"></script>
+</body>
+
+</html>
