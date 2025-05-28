@@ -44,7 +44,7 @@ async function fetchNews(date) {
         month: 'long'
     });
     
-    const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(monthYear)}&from=${date}&sortBy=publishedAt&apiKey=${apiKey}`;
+    const url = `http://newsapi.org/v2/everything?q=${encodeURIComponent(monthYear)}&from=${date}&sortBy=publishedAt&apiKey=${apiKey}`;
     
     headline.textContent = "Loading news...";
     description.textContent = "";
