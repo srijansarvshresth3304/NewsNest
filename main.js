@@ -44,7 +44,8 @@ async function fetchNews(date) {
         month: 'long'
     });
     
-    const url = `http://newsapi.org/v2/everything?q=${encodeURIComponent(monthYear)}&from=${date}&sortBy=publishedAt&apiKey=${apiKey}`;
+    // Replace NewsAPI call with:
+    const url = `https://your-proxy.vercel.app/api/news?date=${date}`;
     
     headline.textContent = "Loading news...";
     description.textContent = "";
