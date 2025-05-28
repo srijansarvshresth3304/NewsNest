@@ -25,7 +25,7 @@ HTML5 Semantic Markup
 
 Perfect for developers who love retro design, journalism enthusiasts, or anyone who misses the feel of a physical newspaper!
 
-🚀 Live Demo: [Link to your hosted version]
+🚀 Live Demo: [https://news-nest-eight.vercel.app/]
 
 Why This Works:
 Clear Value Proposition – Explains what the project does in the first line
