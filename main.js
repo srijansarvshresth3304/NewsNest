@@ -4,7 +4,7 @@ const headline = document.getElementById("headline");
 const description = document.getElementById("description");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
-const printBtn = document.getElementById("printBtn"); // Added print button reference
+const printBtn = document.getElementById("printBtn");
 const articleSource = document.getElementById("articleSource");
 const articleDate = document.getElementById("articleDate");
 
@@ -18,8 +18,9 @@ currentDateElement.textContent = formatDisplayDate(today);
 let articles = [];
 let currentIndex = 0;
 
-// Get your free API key from https://newsapi.org/
-const apiKey = '93adcb5dfa1049eea78e130e38b66811';
+// GNews API configuration
+const apiKey = 'e383ba7b65b922c447744774e03ffa2c'; // Replace with your GNews API key
+const apiUrl = 'https://gnews.io/api/v4/search';
 
 // Format date as YYYY-MM-DD for API
 function formatDate(date) {
@@ -39,13 +40,17 @@ function formatDisplayDate(date) {
 }
 
 async function fetchNews(date) {
-    const monthYear = today.toLocaleDateString('en-IN', {
+    const selectedDate = new Date(date);
+    const monthYear = selectedDate.toLocaleDateString('en-IN', {
         year: 'numeric',
         month: 'long'
     });
     
-    // Replace NewsAPI call with:
-    const url = `https://your-proxy.vercel.app/api/news?date=${date}`;
+    const query = monthYear;
+    const fromDate = `${date}T00:00:00Z`;
+    const toDate = `${date}T23:59:59Z`;
+    
+    const url = `${apiUrl}?q=${encodeURIComponent(query)}&from=${fromDate}&to=${toDate}&lang=en&country=in&max=10&apikey=${apiKey}`;
     
     headline.textContent = "Loading news...";
     description.textContent = "";
@@ -102,11 +107,16 @@ function showArticle(index) {
         // Add source information if available
         if (article.source?.name) {
             articleSource.textContent = `Source: ${article.source.name}`;
+        } else if (article.source) {
+            articleSource.textContent = `Source: ${article.source}`;
         }
         
         // Add published date if available
         if (article.publishedAt) {
             const pubDate = new Date(article.publishedAt);
+            articleDate.textContent = `Published: ${formatDisplayDate(pubDate)}`;
+        } else if (article.publishedDate) {
+            const pubDate = new Date(article.publishedDate);
             articleDate.textContent = `Published: ${formatDisplayDate(pubDate)}`;
         }
     }
